@@ -4,8 +4,7 @@ EXTENSIONS = {"MICROSOFT_OFFICE": {"doc", "docx", "ppt", "pptx", "xls", "xlsx"},
               "IMAGES": {"png", "jpg", "jpeg", "gif"},
               "VIDEO_AND_AUDIO": {"mp3", "mp4", "wav"},
               "PDF": {"pdf"},
-              "SCRIPTS_AND_EXECUTABLES": {"py", "java", "c", "cs", "cpp", "exe", "js", "json", "html", "css", "jar"},
-              "OTHER": {None}}
+              "SCRIPTS_AND_EXECUTABLES": {"py", "java", "c", "cs", "cpp", "exe", "js", "json", "html", "css", "jar"}}
 
 DOWNLOADS_DIRECTORY = "C:\\Users\\Reilly\\Downloads"
 
@@ -22,6 +21,8 @@ def main():
         for folder_name in EXTENSIONS:
             if extension in EXTENSIONS[folder_name]:
                 os.rename(os.path.join(DOWNLOADS_DIRECTORY, file_name), os.path.join(os.path.join(DOWNLOADS_DIRECTORY, folder_name), file_name))
+            else:
+                os.rename(os.path.join(DOWNLOADS_DIRECTORY, file_name), os.path.join(os.path.join(DOWNLOADS_DIRECTORY, "OTHER"), file_name))
 
 
 if __name__ == "__main__":
